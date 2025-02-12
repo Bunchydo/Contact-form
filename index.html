@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="messageSentBoxID" class="message-sent-box">
+      <div class="first-row"><img src="assets/images/icon-success-check.svg" alt=""> Message Sent!</div>
+      <div class="second-row">Thanks for completing the form. We'' be in touch soon!</div>
+    </div>
+    <div class="main-container">
+      
+      <!--Title-->
+      <div class="title-row"><h2>Contact Us</h2></div>
+      <div class="names-row general-design">
+        <!--firstname-->
+        <div class="firsthalf-design">
+          <label for="firstname" class="title-designs">First Name <span class="highlighted-star">*</span></label>
+          <input
+            class="border-outline"
+            type="text"
+            id="firstnameID"
+            name="firstname"
+          />
+          <div class="error-message">This field is required</div>
+        </div>
+
+        <!--last name-->
+        <div class="secondhalf-design">
+          <label for="lastname" class="title-designs">Last Name <span class="highlighted-star">*</span></label>
+          <input
+            class="border-outline"
+            type="text"
+            id="lastnameID"
+            name="lastname"
+          />
+          <div class="error-message">This field is required</div>
+
+        </div>
+      </div>
+
+      <!--Email Address-->
+      <div class="email-address-row">
+        <label for="emailaddress" class="title-designs">Email Address <span class="highlighted-star">*</span></label>
+        <input
+          class="border-outline"
+          type="text"
+          id="emailaddressID"
+          name="emailaddress"
+        />
+        <div class="error-message">Please enter a valid email address</div>
+
+      </div>
+
+      <!--Query Type Input-->
+      <div class="querytype-row general-design">
+        <!--Query Type First Half of Container-->
+        <div class="query-title title-designs">Query Type <span class="highlighted-star">*</span></div>
+        <div class="firsthalf-design">
+          <div class="testing border-outline custom-design-border">
+            <input class="radio-input" type="radio" id="generalEnquiryID" name="enquirybutton" />
+            <label for="generalEnquiry">General Enquiry</label>
+            
+          </div>
+          <div class="error-message">Please select a query type</div>
+
+        </div>
+        <!--Query Type Second Half of Container-->
+        <div class="secondhalf-design">
+          <div class="testing border-outline custom-design-border">
+            <input class="radio-input" type="radio" id="supportRequestID" name="enquirybutton" />
+            <label for="supportRequest">Support Request</label>
+          </div>
+        </div>
+      </div>
+
+      <!--Message-->
+      <div class="message-row general-design">
+        <label for="message" class="title-designs">Message <span class="highlighted-star">*</span></label>
+        <textarea
+        id="messageTextID"
+          class="message-label border-outline"
+          rows="4"
+          cols="30"
+          style="resize: none; padding: 5px"
+        ></textarea>
+        <div class="error-message">This field is required</div>
+
+      </div>
+
+      <div class="consent-row"> 
+        <input id="consentCheckBoxID" type="checkbox">
+        <p >I consent to being contacted by the team <span class="highlighted-star">*</span></p>
+        <div class="error-message">To submit this form, please consent to being contacted</div>
+
+      </div>
+
+      <!--Submit Button-->
+      <button id="submitButtonID" class="submitButton">Submit</button>
+    </div>
+
+    
+  </body>
+  <script src="script.js"></script>
+</html>

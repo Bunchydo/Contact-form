@@ -1,0 +1,181 @@
+using "for" in forms and what "name" does in forms
+
+ HTML Form Elements:
+<input> Element:
+
+name Attribute: This specifies the name of the <input> element, which is used to reference the form data after the form is submitted or in JavaScript for accessing and processing that data.
+Example:
+html
+Copy
+Edit
+<input type="text" name="username" value="JohnDoe">
+When the form is submitted, it sends the data as username=JohnDoe.
+<label> Element:
+
+for Attribute: The for attribute associates the label with a specific input element. The value of the for attribute matches the id of the corresponding input field, allowing users to click the label to focus on the input.
+Example:
+html
+Copy
+Edit
+<label for="username">Username</label>
+<input type="text" id="username" name="username">
+2. Grouping Fields with <fieldset> and <legend>:
+<fieldset> Element: Used to group related form fields together. It makes it easier for users to understand that certain fields are related.
+<legend> Element: Provides a description or title for the group of fields, which is especially useful for accessibility and understanding the form context.
+Example:
+html
+Copy
+Edit
+<fieldset>
+  <legend>Personal Information</legend>
+  <label for="first-name">First Name</label>
+  <input type="text" id="first-name" name="first-name">
+</fieldset>
+3. Adding class to <fieldset>:
+You can add a class to the <fieldset> element for styling or easier manipulation via JavaScript.
+Example:
+html
+Copy
+Edit
+<fieldset class="form-group">
+  <legend>Personal Information</legend>
+  <label for="first-name">First Name</label>
+  <input type="text" id="first-name" name="first-name">
+</fieldset>
+4. Accessibility Considerations:
+Using the for attribute in labels and properly grouping related fields with <fieldset> and <legend> significantly improves the accessibility of the form.
+Native form controls like <input>, <textarea>, and <select> are preferred because they are compatible with assistive technologies.
+
+Use flex wrap to get somethgin to new line
+
+The resize property in CSS controls whether and how an element (like a <textarea>) can be resized by the user. This is commonly seen as the little handle in the bottom-right corner of a textarea.
+he resize property in CSS controls whether and how an element (like a <textarea>) can be resized by the user. This is commonly seen as the little handle in the bottom-right corner of a textarea.
+
+🚀 Syntax:
+css
+Copy
+Edit
+resize: none | both | horizontal | vertical | inline | block;
+🔑 Options Explained:
+resize: none;
+
+❌ Disables resizing completely.
+The user cannot adjust the size in any direction.
+Example:
+html
+Copy
+Edit
+<textarea style="resize: none; padding: 5px;"></textarea>
+resize: both; (default behavior)
+
+↔️↕️ Allows resizing both horizontally and vertically.
+The user can drag the bottom-right corner to resize freely.
+Example:
+html
+Copy
+Edit
+<textarea style="resize: both;"></textarea>
+resize: horizontal;
+
+↔️ Allows resizing only side-to-side (left-right).
+The height is fixed, but the width can be changed.
+Example:
+html
+Copy
+Edit
+<textarea style="resize: horizontal; width: 200px;"></textarea>
+resize: vertical;
+
+↕️ Allows resizing only up-and-down.
+The width is fixed, but the height can be changed.
+Example:
+html
+Copy
+Edit
+<textarea style="resize: vertical; height: 100px;"></textarea>
+resize: inline; (less common)
+
+🔄 Allows resizing in the inline (text flow) direction.
+Depends on writing mode (left-to-right, right-to-left).
+Example: Mostly used in more complex layouts.
+resize: block; (less common)
+
+📏 Allows resizing in the block (opposite of inline) direction.
+Again, depends on layout direction (useful with CSS Grid/Flexbox).
+
+By default, <label> elements are inline elements, which means properties like margin-top or margin-bottom won’t behave as expected.
+
+to style custom inputs use Using Custom Styling with appearance: none
+You can hide the default radio button and design a custom one using appearance: none.
+Use classes for reusable elements and IDs for unique elements
+
+
+Array of Objects for Input-Error Mapping:
+javascript
+Copy
+Edit
+const fields = [
+    { input: firstnameID, error: errorMessages[0] },
+    { input: lastnameID, error: errorMessages[1] },
+    { input: emailaddressID, error: errorMessages[2] },
+    { input: generalEnquiryID, error: errorMessages[3] },
+    { input: supportRequestID, error: errorMessages[4] },
+    { input: messageTextID, error: errorMessages[5] }
+];
+Explanation:
+Array ([]):
+The structure is an array because we are grouping multiple objects (representing different fields and their corresponding error messages) together.
+
+Objects ({}):
+Each object inside the array represents a specific field and its corresponding error message.
+
+The key input holds a reference to the input field element (like firstnameID).
+The key error holds a reference to the corresponding error message element (like errorMessages[0] for the first input field).
+Purpose:
+Mapping Fields to Error Messages:
+Each input field is linked to its corresponding error message so that we can easily access both when performing validation. This allows us to display the appropriate error message next to the relevant input if it’s left empty.
+
+Organizing Code:
+Grouping related data (inputs and their errors) into objects inside an array makes the code cleaner and more maintainable. It also allows for easy iteration and validation.
+
+Order Matters:
+The order of the objects in the array is important because the input field and its corresponding error message are matched by their index.
+firstnameID is linked to errorMessages[0] (the first error message).
+lastnameID is linked to errorMessages[1] (the second error message), and so on.
+This means the positions of the input fields and the error messages should match exactly for the validation process to work correctly.
+
+Example Use Case in Validation:
+javascript
+Copy
+Edit
+fields.forEach(field => {
+    if (field.input.value.trim() === "") { // Check if the input is empty
+        field.error.style.display = "block"; // Show the corresponding error message
+    }
+});
+field.input refers to the input field in the current object.
+field.error refers to the error message associated with that input field.
+Benefits of Using This Approach:
+Avoids Repetition:
+Instead of checking each input field and displaying the error message individually, we can loop through the fields array, reducing repetitive code.
+
+Improves Maintainability:
+If you need to add or remove fields, you can simply update the fields array without having to modify individual validation logic.
+
+Clearer Structure:
+
+You can't unselect a radio button because of how radio buttons work by default in HTML. When radio buttons share the same name attribute, they are grouped together, meaning only one can be selected at a time, and you can't deselect all by clicking an already selected radio button.
+
+Why event.preventDefault()?
+It stops the form from submitting immediately, allowing us to validate the inputs first.
+
+4. Hiding All Error Messages Initially
+javascript
+Copy
+Edit
+errorMessages.forEach(error => error.style.display = "none");
+Purpose:
+To clear any visible error messages from previous attempts before validating again.
+.trim() removes extra spaces.
+
+ i learnt you can use indexes for arrays to go use in ForEach when using classes from queryselector all
